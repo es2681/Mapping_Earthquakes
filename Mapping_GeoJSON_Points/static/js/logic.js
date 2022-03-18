@@ -24,16 +24,6 @@ let sanFranAirport =
             "coordinates":[-122.375,37.61899948120117]}}
 ]};
 
-// Grabbing our GeoJSON data
-/* L.geoJSON(sanFranAirport, {
-    // We turn each feature into a marker on the map skill drill #1 13.5.2
-    pointToLayer: function(feature, latlng) {
-        console.log(feature);
-        return L.marker(latlng)
-        .bindPopup("<h2>" + feature.properties.name + "</h2> <hr> <h4>" + feature.properties.city + ", " + feature.properties.country + "</h4>");
-    }
-}).addTo(map); */ 
-
 //skill drill #2 13.5.2
 L.geoJSON (sanFranAirport, {
     onEachFeature: function(feature, layer){
@@ -41,9 +31,6 @@ L.geoJSON (sanFranAirport, {
         layer.bindPopup("<h2> Airport code: " + feature.properties.faa + "</h2> <hr> <h3> Airport name: " + feature.properties.name + "</h3>");
     }
 }).addTo(map);
-
-// Get data from cities.js
-let cityData = cities;
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/tiles/{z}/{x}/{y}?access_token={accessToken}', {
