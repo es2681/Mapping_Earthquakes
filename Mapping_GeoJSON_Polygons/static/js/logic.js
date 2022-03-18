@@ -41,6 +41,6 @@ d3.json(torontoHoods).then(function(data){
         weight: 1,
         fillColor: "yellow",
         onEachFeature: function(feature, layer) {
-            layer.bindPopup("<h3> Neighborhood: " + data.properties.AREA_NAME + "</h3>")
+            layer.bindPopup("<h3> Neighborhood: " + feature.properties.AREA_NAME + "</h3>")
         }}).addTo(map);
 });
